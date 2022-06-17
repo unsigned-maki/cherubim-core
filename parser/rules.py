@@ -59,13 +59,15 @@ CHAIN_RULES = {
             "OP_XOR",
             "OP_NOR",
             "OP_XNOR",
-            "SYN_BRACE_OPEN"
+            "SYN_BRACE_OPEN",
+            "NIL"
         ],
         "next": [
             "ID_IDENTIFIER",
             "LTRL_TRUE",
             "LTRL_FALSE",
-            "SYN_BRACE_OPEN"
+            "SYN_BRACE_OPEN",
+            "NIL"
         ]
     },
     "ID": {
@@ -80,7 +82,9 @@ CHAIN_RULES = {
             "OP_XOR",
             "OP_NOR",
             "OP_XNOR",
-            "SYN_BRACE_OPEN"
+            "SYN_BRACE_OPEN",
+            "ID_IDENTIFIER",
+            "NIL"
         ],
         "next": [
             "OP_DEFINE",
@@ -94,7 +98,9 @@ CHAIN_RULES = {
             "OP_NOR",
             "OP_XNOR",
             "SYN_BRACE_OPEN",
-            "SYN_BRACE_CLOSE"
+            "SYN_BRACE_CLOSE",
+            "ID_IDENTIFIER",
+            "NIL"
         ]
     }
 }
