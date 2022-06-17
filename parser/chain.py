@@ -8,7 +8,9 @@ class Chain:
     def __init__(self, tokens, from_, to, braces, memory):
         self.inner = []
 
-        for i in range(from_, to):
+        i = from_
+
+        while i <= to:
 
             current = tokens[i]
             previous = tokens[i - 1] if i > from_ else Token(-1, "NIL", "NIL")
@@ -17,13 +19,13 @@ class Chain:
             match current.type:
                 case "SYN_BRACE_OPEN":
                     if braces.get(current.id, False):
-                        i = braces[current.id]
                         self.inner.append(
                             Block(
                                 "BLOCK_CHAIN",
                                 Chain(tokens, current.id + 1, braces[current.id] - 1, braces, memory)
                             )
                         )
+                        i = braces[current.id]
                     else:
                         raise ValueError("Error")
                         #  TODO: raise error
@@ -58,3 +60,5 @@ class Chain:
                 case _:
                     raise ValueError("Error")
                     #  TODO: raise error
+
+            i += 1
