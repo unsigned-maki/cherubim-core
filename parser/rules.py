@@ -40,6 +40,7 @@ CHAIN_RULES = {
             "NIL"
         ],
         "next": [
+            "OP_NOT",
             "ID_IDENTIFIER",
             "SYN_BRACE_OPEN",
             "LTRL_TRUE",
@@ -67,6 +68,21 @@ CHAIN_RULES = {
             "LTRL_TRUE",
             "LTRL_FALSE",
             "SYN_BRACE_OPEN",
+            "OP_NOT"
+            "NIL"
+        ]
+    },
+    "OP_DEFINE": {
+        "previous": [
+            "SYN_BRACE_CLOSE",
+            "ID_IDENTIFIER"
+        ],
+        "next": [
+            "ID_IDENTIFIER",
+            "LTRL_TRUE",
+            "LTRL_FALSE",
+            "SYN_BRACE_OPEN",
+            "OP_NOT"
             "NIL"
         ]
     },
