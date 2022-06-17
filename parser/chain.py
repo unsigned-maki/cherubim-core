@@ -14,7 +14,7 @@ class Chain:
 
             current = tokens[i]
             previous = tokens[i - 1] if i > from_ else Token(-1, "NIL", "NIL")
-            next = tokens[i + 1] if i <= to else Token(-1, "NIL", "NIL")
+            next = tokens[i + 1] if i < to else Token(-1, "NIL", "NIL")
 
             match current.type:
                 case "SYN_BRACE_OPEN":
@@ -45,6 +45,12 @@ class Chain:
                         #  TODO: raise error
                 case "OP_NOT":
                     if previous.type in cr["OP_NOT"]["previous"] and next.type in cr["OP_NOT"]["next"]:
+                        self.inner.append(Block(current.type, current.literal))
+                    else:
+                        raise ValueError("Error")
+                        #  TODO: raise error
+                case "OP_DEFINE":
+                    if previous.type in cr["OP_DEFINE"]["previous"] and next.type in cr["OP_DEFINE"]["next"]:
                         self.inner.append(Block(current.type, current.literal))
                     else:
                         raise ValueError("Error")
