@@ -32,4 +32,4 @@ def parse(tokens):
 
     resolve_braces(braces, brace_table)
 
-    execution = chain.Chain(tokens, 0, len(tokens), brace_table, memory.SymbolTable())
+    return chain.Chain(tokens, 0, len(tokens) - 1, brace_table, memory.SymbolTable())
