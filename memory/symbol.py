@@ -36,8 +36,10 @@ class SymbolFunction(Symbol):
 
     def call(self, args):
         if len(args) == len(arg_list):
+            raise ValueError("Error")
             #  TODO: implement resolving of chain
         else:
+            raise ValueError("Error")
             #  TODO: implement error
 
 
