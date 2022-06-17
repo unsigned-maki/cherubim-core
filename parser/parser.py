@@ -30,6 +30,9 @@ def parse(tokens):
 
     brace_table = {}
 
-    resolve_braces(braces, brace_table)
+    try:
+        resolve_braces(braces, brace_table)
+    except IndexError:
+        raise ValueError("Brace opened but not enclosed")
 
     return chain.Chain(tokens, 0, len(tokens) - 1, brace_table, memory.SymbolTable())
