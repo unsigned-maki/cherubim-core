@@ -43,6 +43,8 @@ def split(input):
         if not len(split):
             continue
 
+    split.append(tmp)
+
     return split
 
 
@@ -50,7 +52,7 @@ def lex(input):
     id_counter = 0
     new_tokens = []
 
-    input = post_process(input)
+    input = post_process(input + " ")
     split_input = split(input)
 
     for i in split_input:
