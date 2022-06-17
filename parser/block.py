@@ -42,8 +42,7 @@ class Block:
                 self.type = "BLOCK_XNOR"
             case "ID_IDENTIFIER":
                 self.type = "BLOCK_IDENTIFIER"
-            case "LTRL_TRUE":
-            case "LTRL_FALSE":
+            case "LTRL_TRUE" | "LTRL_FALSE":
                 self.type = "BLOCK_STATEMENT"
             case "BLOCK_CHAIN":
                 self.type = "BLOCK_CHAIN"
